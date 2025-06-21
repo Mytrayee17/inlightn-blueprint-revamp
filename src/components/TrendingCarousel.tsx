@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const TrendingCarousel = () => {
   // TODO: Replace with actual trending programs data
   const trendingPrograms = [
-    { id: 1, title: 'Cybersecurity Fundamentals', icon: '🔒', seatsLeft: 12 },
+    { id: 1, title: 'Ethical Hacking Fundamentals', icon: '🔒', seatsLeft: 12 },
     { id: 2, title: 'Full-Stack Development', icon: '💻', seatsLeft: 8 },
     { id: 3, title: 'Data Science Bootcamp', icon: '📊', seatsLeft: 15 },
     { id: 4, title: 'Cloud Architecture', icon: '☁️', seatsLeft: 5 },

@@ -1,6 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Moon, Sun, ChevronDown } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,6 +9,7 @@ const Navigation = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showProgramsMenu, setShowProgramsMenu] = useState(false);
+  const location = useLocation();
 
   // Handle scroll behavior for sticky nav with hide/show
   useEffect(() => {
@@ -53,22 +54,27 @@ const Navigation = () => {
   };
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
     { 
       name: 'Programs', 
-      href: '#programs',
+      href: '/programs',
       hasSubmenu: true,
       submenu: [
-        { name: 'Cybersecurity', href: '#cybersecurity' },
-        { name: 'Full-Stack Development', href: '#fullstack' },
-        { name: 'Data Science', href: '#datascience' },
-        { name: 'Data Analysis', href: '#dataanalysis' }
+        { name: 'Business Analyst', href: '/programs/business-analyst' },
+        { name: 'Front-End Development', href: '/programs/frontend' },
+        { name: 'Ethical Hacking', href: '/programs/ethical-hacking' },
+        { name: 'Full-Stack Development', href: '/programs/fullstack' },
+        { name: 'AI & Machine Learning', href: '/programs/ai-ml' },
+        { name: 'Data Analyst', href: '/programs/data-analyst' },
+        { name: 'Offensive Cybersecurity', href: '/programs/offensive-cybersecurity' },
+        { name: 'Data Science', href: '/programs/data-science' },
+        { name: 'Web Development', href: '/programs/web-development' },
       ]
     },
-    { name: 'Verify Certificate', href: '#verify' },
-    { name: 'What\'s Special', href: '#special' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Verify Certificate', href: '/verify' },
+    { name: 'What\'s Special', href: '/special' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -77,8 +83,8 @@ const Navigation = () => {
         isVisible ? 'translate-y-0' : '-translate-y-full'
       } ${
         isScrolled 
-          ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg transform scale-y-80 origin-top' 
-          : 'bg-inlighn-blue dark:bg-inlighn-blue-dark'
+          ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg' 
+          : 'bg-gradient-to-r from-inlighn-primary to-inlighn-dark'
       }`}
       role="navigation"
       aria-label="Main navigation"
@@ -87,15 +93,15 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" className="flex items-center" aria-label="Inlighn Home">
+            <Link to="/" className="flex items-center" aria-label="Inlighn Home">
               <div className={`text-2xl font-bold transition-colors duration-200 ${
                 isScrolled 
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent' 
+                  ? 'bg-gradient-to-r from-inlighn-primary to-inlighn-secondary bg-clip-text text-transparent' 
                   : 'text-white'
               }`}>
                 Inlighn
               </div>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -130,31 +136,32 @@ const Navigation = () => {
                           <div className="p-4">
                             <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Program Domains</h3>
                             {item.submenu?.map((subItem) => (
-                              <a
+                              <Link
                                 key={subItem.name}
-                                href={subItem.href}
+                                to={subItem.href}
                                 className="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-inlighn-accent hover:text-white rounded-md transition-colors duration-200"
                                 role="menuitem"
+                                onClick={() => setShowProgramsMenu(false)}
                               >
                                 {subItem.name}
-                              </a>
+                              </Link>
                             ))}
                           </div>
                         </div>
                       )}
                     </div>
                   ) : (
-                    <a
-                      href={item.href}
+                    <Link
+                      to={item.href}
                       className={`relative px-3 py-2 text-sm font-medium transition-all duration-200 group ${
                         isScrolled
                           ? 'text-slate-700 dark:text-slate-200 hover:text-inlighn-accent'
                           : 'text-white hover:text-inlighn-accent'
-                      }`}
+                      } ${location.pathname === item.href ? 'text-inlighn-accent' : ''}`}
                     >
                       {item.name}
                       <span className="absolute bottom-0 left-0 w-full h-0.5 bg-inlighn-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
-                    </a>
+                    </Link>
                   )}
                 </div>
               ))}
@@ -178,9 +185,9 @@ const Navigation = () => {
 
             {/* Login Button */}
             <div className="hidden md:block">
-              <button className="bg-inlighn-accent hover:bg-inlighn-accent-dark text-white px-6 py-2 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
+              <Link to="/login" className="bg-inlighn-accent hover:bg-yellow-500 text-inlighn-dark font-semibold px-6 py-2 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-inlighn-accent/50">
                 Login
-              </button>
+              </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -215,31 +222,31 @@ const Navigation = () => {
                     </button>
                     <div className="ml-4 mt-2 space-y-1">
                       {item.submenu?.map((subItem) => (
-                        <a
+                        <Link
                           key={subItem.name}
-                          href={subItem.href}
+                          to={subItem.href}
                           className="block px-3 py-2 text-sm text-slate-600 dark:text-slate-300 hover:text-inlighn-accent hover:bg-slate-50 dark:hover:bg-gray-800 rounded-md transition-colors duration-200"
                           onClick={() => setIsOpen(false)}
                         >
                           {subItem.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
                 ) : (
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.href}
                     className="block px-3 py-2 text-slate-700 dark:text-slate-200 hover:text-inlighn-accent hover:bg-slate-50 dark:hover:bg-gray-800 rounded-md transition-colors duration-200"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 )}
               </div>
             ))}
-            <button className="w-full mt-4 bg-inlighn-accent hover:bg-inlighn-accent-dark text-white px-6 py-2 rounded-lg transition-all duration-200">
+            <Link to="/login" className="w-full mt-4 bg-inlighn-accent hover:bg-yellow-500 text-inlighn-dark font-semibold px-6 py-2 rounded-lg transition-all duration-200 text-center block focus:outline-none focus:ring-2 focus:ring-inlighn-accent/50">
               Login
-            </button>
+            </Link>
           </div>
         </div>
       )}

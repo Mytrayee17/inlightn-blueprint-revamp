@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 const EventsBanner = () => {
@@ -8,7 +7,7 @@ const EventsBanner = () => {
   const events = [
     {
       id: 1,
-      title: 'Next Live Cybersecurity Workshop',
+      title: 'Next Live Ethical Hacking Workshop',
       date: 'July 5, 2024',
       cta: 'Register Now'
     },

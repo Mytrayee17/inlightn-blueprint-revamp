@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 
 const StatsSection = () => {
@@ -11,8 +10,8 @@ const StatsSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const targetCounts = {
-    graduates: 10000,
-    partners: 500,
+    graduates: 500,
+    partners: 50,
     placement: 95
   };
 
@@ -83,21 +82,21 @@ const StatsSection = () => {
     },
     { 
       key: 'placement', 
-      label: 'Placement Rate', 
+      label: 'Success Rate', 
       suffix: '%',
       description: 'Average placement success across all programs'
     }
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-r from-inlighn-primary to-inlighn-secondary text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Real-Time Impact
+            Our Impact in Numbers
           </h2>
-          <p className="text-blue-100 max-w-2xl mx-auto">
-            Join thousands of successful graduates who transformed their careers with Inlighn
+          <p className="text-white/80 max-w-2xl mx-auto">
+            Join hundreds of successful graduates who transformed their careers with Inlighn Tech
           </p>
         </div>
 
@@ -111,12 +110,12 @@ const StatsSection = () => {
               </div>
               
               {/* Label */}
-              <div className="text-xl font-semibold text-blue-100 mb-2">
+              <div className="text-xl font-semibold text-white/90 mb-2">
                 {stat.label}
               </div>
               
               {/* Description */}
-              <div className="text-blue-200 text-sm leading-relaxed">
+              <div className="text-white/70 text-sm leading-relaxed">
                 {stat.description}
               </div>
             </div>
