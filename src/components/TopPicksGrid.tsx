@@ -1,5 +1,6 @@
 import React from 'react';
 import { Clock, Users, Star, Shield, Code, Database, Cloud } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const TopPicksGrid = () => {
   // TODO: Make this dynamic based on region or browsing history
@@ -120,9 +121,9 @@ const TopPicksGrid = () => {
 
         {/* View All Link */}
         <div className="text-center">
-          <button className="text-blue-600 hover:text-blue-700 font-semibold hover:underline">
+          <Link to="/programs" className="text-blue-600 hover:text-blue-700 font-semibold hover:underline">
             View All Programs →
-          </button>
+          </Link>
         </div>
       </div>
     </section>

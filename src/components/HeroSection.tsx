@@ -14,11 +14,9 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Video Background (New Engen inspired) */}
-      <div className="absolute inset-0 bg-gradient-code">
-        {/* TODO: Add looping video of code/data streams */}
-        {/* TODO: Dark mode toggle swaps to lighter video */}
-        <div className="absolute inset-0 bg-gradient-to-br from-inlighn-primary/20 via-inlighn-secondary/20 to-inlighn-accent/20"></div>
+      {/* Background */}
+      <div className="absolute inset-0 bg-white dark:bg-slate-900">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-pink-50/50 dark:from-slate-800/50 dark:via-purple-900/50 dark:to-pink-900/50"></div>
       </div>
 
       {/* Split Layout (Eduard Bodak inspired) */}
@@ -28,15 +26,14 @@ const HeroSection = () => {
           {/* Left: Text Content */}
           <div className="space-y-8">
             {/* Headline with tight letter-spacing (Micro inspired) */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 dark:text-white leading-tight tracking-tight">
-              
-              <span className="block bg-gradient-mesh bg-clip-text text-transparent animate-gradient-shift bg-size-200">
-                 Bridge the Gap  Between Academic
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-800 dark:text-white leading-tight tracking-tight">
+              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                 Bridge the Gap Between Academic
               </span>
-              <span className="block text-slate-700 dark:text-slate-200">
+              <span className="block text-slate-600 dark:text-slate-300">
                 Learning and
               </span>
-              <span className="block text-inlighn-primary">
+              <span className="block text-pink-500">
                 Industry Needs
               </span>
             </h1>
@@ -49,16 +46,16 @@ const HeroSection = () => {
 
             {/* CTA Buttons with ripple effect (New Engen inspired) */}
             <div className="flex flex-col sm:flex-row gap-6">
-              <Link to="/programs" className="group relative overflow-hidden bg-gradient-to-r from-inlighn-primary to-inlighn-secondary text-white px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl">
+              <Link to="/programs" className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl">
                 <span className="relative z-10 flex items-center space-x-2 text-lg font-semibold">
                   <span>Explore Programs</span>
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                 </span>
                 {/* TODO: Add ripple effect on click */}
-                <div className="absolute inset-0 bg-gradient-to-r from-inlighn-secondary to-inlighn-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
               
-              <Link to="/contact" className="group relative overflow-hidden text-slate-700 dark:text-slate-200 hover:text-inlighn-primary px-8 py-4 rounded-xl border-2 border-slate-300 dark:border-slate-600 hover:border-inlighn-primary transition-all duration-300 transform hover:scale-105 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+              <Link to="/contact" className="group relative overflow-hidden text-slate-700 dark:text-slate-200 hover:text-pink-500 px-8 py-4 rounded-xl border-2 border-slate-300 dark:border-slate-600 hover:border-pink-500 transition-all duration-300 transform hover:scale-105 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
                 <span className="relative z-10 flex items-center space-x-2 text-lg font-semibold">
                   <Play className="w-5 h-5" />
                   <span>Get Started</span>
@@ -70,19 +67,19 @@ const HeroSection = () => {
             {/* Stats with count-up animation */}
             <div className="grid grid-cols-3 gap-8 pt-8">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-inlighn-primary mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">
                   <span className="count-up" data-target="95">98</span>%
                 </div>
                 <div className="text-sm text-slate-600 dark:text-slate-400">Success Rate</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-inlighn-secondary mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">
                   <span className="count-up" data-target="500">1567</span>+
                 </div>
                 <div className="text-sm text-slate-600 dark:text-slate-400">Graduates</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-inlighn-accent mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-pink-500 mb-2">
                   <span className="count-up" data-target="9">99</span>
                 </div>
                 <div className="text-sm text-slate-600 dark:text-slate-400">Programs</div>

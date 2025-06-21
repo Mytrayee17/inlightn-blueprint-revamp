@@ -62,7 +62,7 @@ export default function FeaturedSpotlight() {
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="/programs/ethical-hacking"
+                href="/programs/offensive-cybersecurity"
                 className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl"
               >
                 <span className="relative z-10">Apply Now</span>

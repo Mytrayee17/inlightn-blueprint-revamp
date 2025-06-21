@@ -17,6 +17,7 @@ import NotFound from "./pages/NotFound";
 // Layout Imports
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/utils/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ function App() {
       <TooltipProvider>
         <SonnerToaster />
         <Router>
+          <ScrollToTop />
           <Navigation />
           <Routes>
             <Route path="/" element={<Index />} />
