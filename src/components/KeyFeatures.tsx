@@ -43,29 +43,30 @@ const KeyFeatures = () => {
     const steps = 60;
     const stepDuration = duration / steps;
 
-    const intervals = Object.keys(targetCounts).map((key) => {
+    const intervalIds: NodeJS.Timeout[] = [];
+
+    Object.keys(targetCounts).forEach((key) => {
       const target = targetCounts[key as keyof typeof targetCounts];
       const increment = target / steps;
       let current = 0;
 
-      return setInterval(() => {
+      const intervalId = setInterval(() => {
         current += increment;
         if (current >= target) {
           current = target;
+          clearInterval(intervalId);
         }
         
         setCounts(prev => ({
           ...prev,
           [key]: Math.floor(current)
         }));
-
-        if (current >= target) {
-          clearInterval(intervals.find(i => i === interval));
-        }
       }, stepDuration);
+
+      intervalIds.push(intervalId);
     });
 
-    return () => intervals.forEach(clearInterval);
+    return () => intervalIds.forEach(clearInterval);
   }, [isVisible]);
 
   const features = [
