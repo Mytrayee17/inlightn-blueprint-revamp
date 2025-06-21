@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+/* Updated design system with new color palette */
 
 @layer base {
   :root {
@@ -37,20 +37,23 @@
 
     --radius: 0.5rem;
 
+    /* Inlighn Brand Colors */
+    --inlighn-primary: 234 89% 74%;    /* Soft Blue */
+    --inlighn-secondary: 262 83% 58%;   /* Purple */
+    --inlighn-accent: 142 76% 36%;      /* Emerald Green */
+    --inlighn-accent-dark: 142 76% 28%; /* Darker Emerald */
+    --inlighn-blue: 234 89% 64%;        /* Primary Blue */
+    --inlighn-blue-dark: 234 89% 54%;   /* Darker Blue */
+    --inlighn-gray: 220 13% 91%;        /* Light Gray */
+    --inlighn-gray-dark: 215 25% 27%;   /* Dark Gray */
+
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -82,6 +85,17 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    /* Dark mode Inlighn colors */
+    --inlighn-primary: 234 89% 84%;
+    --inlighn-secondary: 262 83% 68%;
+    --inlighn-accent: 142 76% 46%;
+    --inlighn-accent-dark: 142 76% 38%;
+    --inlighn-blue: 234 89% 74%;
+    --inlighn-blue-dark: 234 89% 64%;
+    --inlighn-gray: 220 13% 25%;
+    --inlighn-gray-dark: 215 25% 15%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -118,6 +132,51 @@
 
   .animate-bounce-gentle {
     animation: bounceGentle 2s ease-in-out infinite;
+  }
+
+  /* Inlighn Brand Utility Classes */
+  .bg-inlighn-primary {
+    background-color: hsl(var(--inlighn-primary));
+  }
+  
+  .bg-inlighn-secondary {
+    background-color: hsl(var(--inlighn-secondary));
+  }
+  
+  .bg-inlighn-accent {
+    background-color: hsl(var(--inlighn-accent));
+  }
+  
+  .bg-inlighn-accent-dark {
+    background-color: hsl(var(--inlighn-accent-dark));
+  }
+  
+  .bg-inlighn-blue {
+    background-color: hsl(var(--inlighn-blue));
+  }
+  
+  .bg-inlighn-blue-dark {
+    background-color: hsl(var(--inlighn-blue-dark));
+  }
+  
+  .text-inlighn-primary {
+    color: hsl(var(--inlighn-primary));
+  }
+  
+  .text-inlighn-accent {
+    color: hsl(var(--inlighn-accent));
+  }
+  
+  .hover\:text-inlighn-accent:hover {
+    color: hsl(var(--inlighn-accent));
+  }
+  
+  .hover\:bg-inlighn-accent:hover {
+    background-color: hsl(var(--inlighn-accent));
+  }
+  
+  .hover\:bg-inlighn-accent-dark:hover {
+    background-color: hsl(var(--inlighn-accent-dark));
   }
 }
 
@@ -162,10 +221,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+  background: linear-gradient(to bottom, hsl(var(--inlighn-blue)), hsl(var(--inlighn-secondary)));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #2563eb, #7c3aed);
+  background: linear-gradient(to bottom, hsl(var(--inlighn-blue-dark)), hsl(var(--inlighn-secondary)));
 }
