@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function FeaturedSpotlight() {
   return (
@@ -61,13 +62,13 @@ export default function FeaturedSpotlight() {
             
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="/programs/offensive-cybersecurity"
+              <Link
+                to="/programs/offensive-cybersecurity"
                 className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl"
               >
                 <span className="relative z-10">Apply Now</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </a>
+              </Link>
               
               <button className="group px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-2xl backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/50">
                 <span className="flex items-center gap-2">

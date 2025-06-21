@@ -73,6 +73,7 @@ const AboutHero = () => {
                 />
               </div>
             </div>
+            
 
             {/* Floating parallax elements */}
             <div className="absolute -top-8 -right-8 w-20 h-20 bg-gradient-to-r from-inlighn-accent to-inlighn-primary rounded-full animate-float opacity-60"></div>
