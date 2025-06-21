@@ -1,5 +1,3 @@
-import Navbar from '@/components/Navigation';
-import Footer from '@/components/Footer';
 import VerifyHero from '@/components/verify/VerifyHero';
 import VerifyForm from '@/components/verify/VerifyForm';
 import CertificateResultCard from '@/components/verify/CertificateResultCard';
@@ -12,12 +10,10 @@ export default function VerifyCertificatePage() {
 
   return (
     <div className="bg-white">
-      <Navbar />
       <VerifyHero />
       <VerifyForm setCertificateData={setCertificateData} />
       {certificateData && <CertificateResultCard data={certificateData} />}
       <VerifyFAQ />
-      <Footer />
     </div>
   );
 } 
